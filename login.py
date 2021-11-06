@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.uix.gridlayout import GridLayout 
 from kivy.uix.label import Label 
 from kivy.uix.textinput import TextInput 
+from kivy.uix.button import Button
 
 class LoginScreen(GridLayout):
 
@@ -14,6 +15,16 @@ class LoginScreen(GridLayout):
         self.add_widget(Label(text='password'))
         self.password = TextInput(password=True, multiline=False)
         self.add_widget(self.password)
+        
+
+        def login(instance):
+            if(self.username.text == "jon" and self.password.text == "password"):
+                print("Logged in Successfully!")
+            else:
+                print("Unknown username or password")
+        loginButton = Button(text="Login" )
+        loginButton.bind(on_press=login)
+        self.add_widget(loginButton)
 
 class MyApp(App):
     def build(self):
