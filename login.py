@@ -15,11 +15,13 @@ class LoginScreen(GridLayout):
         self.add_widget(Label(text='password'))
         self.password = TextInput(password=True, multiline=False)
         self.add_widget(self.password)
-        
+        self.response = Label(text="")
+        self.add_widget(self.response)
 
         def login(instance):
             if(self.username.text == "jon" and self.password.text == "password"):
                 print("Logged in Successfully!")
+                self.response.text = "This is where you would log in...If we actually had an app to login to..."
             else:
                 print("Unknown username or password")
         loginButton = Button(text="Login" )
